@@ -1,9 +1,17 @@
-Welcome to miniFaceApp !
+# MiniFaceApp
 
-This is a side project that came to my mind as I was learning about Variational Autoencoders (VAE). 
+Implementation from scratch of a Variational Auto-Encoder (VAE) in PyTorch trained on the CelebA dataset.
 
-I implemented VAEs from scratch and experimented with them, initially on MNIST, then on the CelebFaces Attributes dataset.
+This project provides a modular architecture, training scripts and reproducible evaluation scripts, as well as documentated experiments.
 
-Then I played with the latent representations, and build a front-end UI to enable others to play with them too.
+## 1. Goal
 
-Have fun :)
+Propose a clear and entirely modular implementation of a VAE applied to face reconstruction and generation.
+
+## 2. Architecture
+
+**Encoder**
+- Progressive convolutional layers
+- BatchNorm layer and LeakyReLU activation after each convolutional layer
+- Projection to two values : `mu` and `logvar` for the reparametrization trick
+- Output : $x = \mu + logvar.\epsilon$ with $\epsilon \tilde N(0,1)$ 
