@@ -66,9 +66,22 @@ First make sure you installed ```uv``` first.
 
 ```uv sync```.
 
+
 ## 5. Utilisation
 
-TO DO
+First ensure your environment is activated : 
+```source .venv/bin/activate```
+
+To train the VAE, run : 
+
+```python main.py````
+
+with the following arguments : 
+```--epochs``` : number of epochs to run
+```--model-name``` (optional) : name to save the model
+```--batch-size``` (optional, default:64) : batch size for training
+```--learning-rate``` (optional, default:1e-3) : learning rate of the Adam optimizer
+```--beta``` (optional, default:1e-4) : Beta parameter for ELBO loss
 
 
 
