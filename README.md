@@ -38,24 +38,17 @@ The VAE build is thus technically a Beta-VAE. In practice, the loss used is :\
 mini-FaceApp/
 │
 ├── src/
-│   ├── models/          # VAE, encodeur, décodeur
-│   ├── training/        # boucle d'entraînement, pertes, gestion checkpoints
-│   ├── data/            # dataloaders, préprocessing
-│   ├── evaluation/      # génération d’images, interpolation, métriques
-│   └── utils/           # fonctions auxiliaires
+│   ├── models/          # VAE, encoder, decoder
+│   ├── training/        # training loop
+│   ├── data/            # dataloaders, preprocessing
+│   ├── evaluation/      # image generation, interpolation, metrics
+│   └── utils/           # miscellaneous
 │
-├── experiments/
-│   ├── exp_01_baseline.md
-│   ├── exp_02_latent_dim.md
-│   └── ...
 │
 ├── notebooks/
-│   └── demo.ipynb       # démonstrations, visualisations
+│   └── demo.ipynb       # early work on MNIST, then progression to CelebA
 │
-├── docs/
-│   └── architecture.md  # schémas, décisions techniques
-│
-├── results/             # sorties générées (reconstructions, interpolations)
+├── results/             
 │
 ├── requirements.txt
 ├── README.md
