@@ -1,5 +1,22 @@
 import torch
+import torch.nn as nn
 from tqdm import tqdm
+
+
+def ELBO(beta):
+    """
+    Return the ELBO loss function for a given beta
+    Parameters :
+        - beta (float) : beta parameter for the ELBO loss
+    Returns :
+        - criterion_beta (function) : ELBO loss function
+    """
+    def criterion_beta(y1,y2, mu, logvar, beta=beta):
+        kl_div = -1/2 * torch.mean(1+logvar-mu.pow(2)-logvar.exp())
+        bce_loss = nn.MSELoss()
+        bce = bce_loss(y1,y2)
+        return bce, beta*kl_div
+    return criterion_beta
 
 
 def train_vae(vae, dataloader, nb_epochs, criterion, optimizer, device):

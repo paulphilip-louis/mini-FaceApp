@@ -1,6 +1,7 @@
 import os
 import torch
-import src.utils.utils as utils
+from src.utils import utils
+from src.evaluation import evaluation
 import argparse
 
 PLOT_PATH = "results"
@@ -8,7 +9,7 @@ PLOT_PATH = "results"
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 
-def main(model_name, idx=0):
+def main(model_name, idx=None):
     if not os.path.exists(os.path.join(PLOT_PATH, model_name)):
         os.makedirs(os.path.join(PLOT_PATH, model_name))
     print("Loading model...")
@@ -18,12 +19,15 @@ def main(model_name, idx=0):
     dataset = utils.load_CelebA(split='test')
     print("Dataset loaded")
     print("Testing model...")
-    utils.plot_reconstruction(model_name, 0, dataset, model, device)
-    print("Model tested")
+    if idx:
+        utils.plot_reconstruction(model_name, idx, dataset, model, device)
+    else:
+        evaluation.generate_img(model, device)
+        
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Test a VAE model on CelebA dataset')
     parser.add_argument('--model-name', type=str, required=True, help='Name of the model to test')
-    parser.add_argument('--idx', type=int, default=0, help='Index of the image to test')
+    parser.add_argument('--idx', type=int, default=None, help='Index of the image to test')
     args = parser.parse_args()
     main(args.model_name, args.idx)
