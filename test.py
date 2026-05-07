@@ -13,7 +13,7 @@ def main(model_name, idx=None):
     if not os.path.exists(os.path.join(PLOT_PATH, model_name)):
         os.makedirs(os.path.join(PLOT_PATH, model_name))
     print("Loading model...")
-    model = utils.load_model(model_name)
+    model = utils.load_model(os.path.join("models", model_name+".pth"))
     print("Model loaded")
     print("Loading dataset...")
     dataset = utils.load_CelebA(split='test')

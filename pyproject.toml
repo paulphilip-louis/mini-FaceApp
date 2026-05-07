@@ -21,4 +21,4 @@ dependencies = [
 
 [project.scripts]
 train_vae = "train:main"
-test_vae = "test:main"
+run_vae = "test:main"
