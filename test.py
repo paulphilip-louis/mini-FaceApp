@@ -18,7 +18,7 @@ def main(model_name, idx=0):
     dataset = utils.load_CelebA(split='test')
     print("Dataset loaded")
     print("Testing model...")
-    utils.plot_reconstruction(0, dataset, model, device)
+    utils.plot_reconstruction(model_name, 0, dataset, model, device)
     print("Model tested")
 
 if __name__ == "__main__":
