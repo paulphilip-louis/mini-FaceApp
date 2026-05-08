@@ -4,8 +4,9 @@ Implementation from scratch of a Variational Auto-Encoder (VAE) in PyTorch train
 
 This project provides a modular architecture, training scripts and reproducible evaluation scripts.
 
-![image](public/original.png)
-![image](public/reconstruction.png)
+| Original image | Reconstructed image |
+|---------|---------|
+| ![original](public/original.png) | ![reconstruction](public/reconstruction.png) |
 
 
 Playing with the latent space:
