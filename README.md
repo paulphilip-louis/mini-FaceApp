@@ -2,7 +2,14 @@
 
 Implementation from scratch of a Variational Auto-Encoder (VAE) in PyTorch trained on the CelebA dataset.
 
-This project provides a modular architecture, training scripts and reproducible evaluation scripts, as well as documentated experiments.
+This project provides a modular architecture, training scripts and reproducible evaluation scripts.
+
+![image](public/original.png)
+![image](public/reconstruction.png)
+
+
+Playing with the latent space:
+![image](public/gender_vector.jpg)
 
 ## 1. Goal
 
@@ -19,7 +26,7 @@ Propose a clear and entirely modular implementation of a VAE applied to face rec
 
 **Decoder**
 - Successive blocks composed of
-  - Upsampling + Convolutional layer
+  - Upsampling + Convolutional layer (Transposed convolutions resulted in artefacts)
   - BatchNorm + LeakyReLU after
   - For final block : Sigmoid activation
  
